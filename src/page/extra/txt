@@ -1,0 +1,132 @@
+ // const [value, setValue] = useState("");
+
+  // const handleButtonClick = (buttonValue: number | string) => {
+  //   switch (buttonValue) {
+  //     case "C":
+  //       setValue("");
+  //       break;
+  //     case "+-":
+  //       setValue((-1 * Number(value)).toString());
+  //       break;
+  //     default:
+  //       setValue(value + buttonValue);
+  //   }
+  // };
+
+   {/* <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => handleButtonClick("C")}
+        >
+          C
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg text-sm"
+          onClick={() => handleButtonClick("+-")}
+        >
+          +-
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          %
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          /
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(7);
+          }}
+        >
+          7
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(8);
+          }}
+        >
+          8
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(9);
+          }}
+        >
+          9
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          X
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(4);
+          }}
+        >
+          4
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(5);
+          }}
+        >
+          5
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(6);
+          }}
+        >
+          6
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          -
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(1);
+          }}
+        >
+          1
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(2);
+          }}
+        >
+          2
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(3);
+          }}
+        >
+          3
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          +
+        </button>
+        <button
+          className="bg-violet-900 text-white h-12 w-12 rounded-lg"
+          onClick={() => {
+            handleButtonClick(0);
+          }}
+        >
+          0
+        </button>
+        <button className="bg-violet-900 text-white h-12 w-12 rounded-lg">
+          .
+        </button>
+        <button className="bg-red-600 text-white h-12 col-span-2  rounded-lg">
+          =
+        </button> */}
+
+
+
+

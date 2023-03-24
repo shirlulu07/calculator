@@ -24,7 +24,7 @@ const Calculator = () => {
     { text: "7" },
     { text: "8" },
     { text: "9" },
-    { text: "X" },
+    { text: "x" },
     { text: "4" },
     { text: "5" },
     { text: "6" },

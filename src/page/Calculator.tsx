@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ButtonStyle from "../component/ButtonStyle";
 
 const Calculator = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("0");
   const [prevValue, setPrevValue] = useState("");
   const [operator, setOperator] = useState("");
   const [display, setDisplay] = useState("0");
@@ -16,7 +16,6 @@ const Calculator = () => {
         setValue("0");
         setPrevValue("");
         setOperator("");
-        setDisplay("");
       } else if (buttonValue === "+-") {
         setValue((-1 * parseInt(value)).toString());
       } else if (buttonValue === "%") {
@@ -38,7 +37,7 @@ const Calculator = () => {
       handleEqual();
     } else {
       setPrevValue(value);
-      setValue("0");
+      setValue(" ");
     }
   }
 
@@ -73,7 +72,6 @@ const Calculator = () => {
     <div className="flex flex-col justify-center items-center border-2 border-black bg-gray-800 rounded-md gap-1 p-1">
       <input
         type="text"
-        placeholder="0"
         value={display ? display : prevValue}
         disabled
         className="bg-gray-700 h-14 rounded-md w-52 text-right text-white text-4xl"

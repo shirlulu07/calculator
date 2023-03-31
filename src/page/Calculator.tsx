@@ -14,6 +14,9 @@ const Calculator = () => {
     } else {
       if (buttonValue === "C") {
         setValue("0");
+        setPrevValue("");
+        setOperator("");
+        setDisplay("");
       } else if (buttonValue === "+-") {
         setValue((-1 * parseInt(value)).toString());
       } else if (buttonValue === "%") {

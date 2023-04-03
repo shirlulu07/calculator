@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ButtonStyle from "../component/ButtonStyle";
 
 const Calculator = () => {
@@ -7,28 +7,31 @@ const Calculator = () => {
   const [operator, setOperator] = useState("");
   const [display, setDisplay] = useState("0");
 
-  function handleButtonClick(buttonValue: string) {
-    const utility = parseInt(buttonValue, 10);
-    if (!isNaN(utility)) {
-      value !== "0" ? setValue(value + buttonValue) : setValue(buttonValue);
-    } else {
-      if (buttonValue === "C") {
-        setValue("0");
-        setPrevValue("");
-        setOperator("");
-      } else if (buttonValue === "+-") {
-        setValue((-1 * parseInt(value)).toString());
-      } else if (buttonValue === "%") {
-        setValue((parseInt(value) / 100).toString());
-      } else if (buttonValue === ".") {
-        !value.includes(".") ? setValue(value + buttonValue) : null;
-      } else if (buttonValue === "=") {
-        handleEqual();
+  const handleButtonClick = useCallback(
+    (buttonValue: string) => {
+      const utility = parseInt(buttonValue, 10);
+      if (!isNaN(utility)) {
+        value !== "0" ? setValue(value + buttonValue) : setValue(buttonValue);
       } else {
-        handleOperator(buttonValue);
+        if (buttonValue === "C") {
+          setValue("0");
+          setPrevValue("");
+          setOperator("");
+        } else if (buttonValue === "+-") {
+          setValue((-1 * parseInt(value)).toString());
+        } else if (buttonValue === "%") {
+          setValue((parseInt(value) / 100).toString());
+        } else if (buttonValue === ".") {
+          !value.includes(".") ? setValue(value + buttonValue) : null;
+        } else if (buttonValue === "=") {
+          handleEqual();
+        } else {
+          handleOperator(buttonValue);
+        }
       }
-    }
-  }
+    },
+    [value, prevValue, operator]
+  );
 
   function handleOperator(buttonValue: string) {
     setOperator(buttonValue);

@@ -25,7 +25,7 @@ const Calculator = () => {
       } else if (buttonValue === "=") {
         handleEqual();
       } else {
-        if (prevValue) {
+        if (prevValue !== "") {
           handleEqual();
         } else {
           handleOperator(buttonValue);
@@ -134,3 +134,4 @@ const Calculator = () => {
 };
 
 export default Calculator;
+rt

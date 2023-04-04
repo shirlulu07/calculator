@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, createContext } from "react";
 import ButtonStyle from "../component/ButtonStyle";
+
+const buttonContext = createContext("button");
 
 const Calculator = () => {
   const [value, setValue] = useState("0");
@@ -69,8 +71,6 @@ const Calculator = () => {
     setDisplay(value);
   }, [value]);
 
-  console.log(prevValue);
-
   return (
     <div className="flex flex-col justify-center items-center border-2 border-black bg-gray-800 rounded-md gap-1 p-1">
       <input
@@ -89,11 +89,13 @@ const Calculator = () => {
           ["0", ".", "="],
         ].map((row, rowindex) =>
           row.map((button, buttonindex) => (
-            <ButtonStyle
-              key={`button-${rowindex}-${buttonindex}`}
-              text={button}
-              onClick={() => handleButtonClick(button)}
-            />
+            <buttonContext.Provider value={button}>
+              <ButtonStyle
+                key={`button-${rowindex}-${buttonindex}`}
+                text={button}
+                onClick={() => handleButtonClick(button)}
+              />
+            </buttonContext.Provider>
           ))
         )}
       </div>

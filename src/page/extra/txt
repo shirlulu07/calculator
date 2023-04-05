@@ -1,0 +1,137 @@
+import { useEffect, useState } from "react";
+import ButtonStyle from "../component/ButtonStyle";
+
+const Calculator = () => {
+  const [value, setValue] = useState("");
+  const [prevValue, setPrevValue] = useState("");
+  const [operator, setOperator] = useState("");
+  const [display, setDisplay] = useState("0");
+
+  const handleButtonClick = (buttonValue: string) => {
+    const utility = parseInt(buttonValue, 10);
+    if (!isNaN(utility)) {
+      value === "0" ? setValue(buttonValue) : setValue(value + buttonValue);
+    } else {
+      if (buttonValue === "+-") {
+        setValue((-1 * parseInt(value)).toString());
+      } else if (buttonValue === "%") {
+        setValue((Number(value) / 100).toString());
+      } else if (buttonValue === "C") {
+        setValue("0");
+        setPrevValue("");
+      } else if (buttonValue === ".") {
+        !value.includes(".") ? setValue(value + ".") : null;
+        setDisplay(value);
+      } else if (buttonValue === "=") {
+        handleEqual();
+      } else {
+        if (prevValue !== "") {
+          handleEqual();
+        } else {
+          handleOperator(buttonValue);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (value !== "") {
+      setDisplay(value);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    setDisplay("0");
+  }, []);
+
+  const handleOperator = (buttonValue: string) => {
+    if (buttonValue === "+") {
+      setPrevValue(value);
+      setOperator("+");
+      setValue("");
+      setDisplay("");
+    } else if (buttonValue === "-") {
+      setPrevValue(value);
+      setOperator("-");
+      setValue("");
+      setDisplay("");
+    } else if (buttonValue === "x") {
+      setPrevValue(value);
+      setOperator("x");
+      setValue("");
+      setDisplay("");
+    } else if (buttonValue === "/") {
+      setPrevValue(value);
+      setOperator("/");
+      setValue("");
+      setDisplay("");
+    }
+  };
+  console.log(prevValue);
+
+  const handleEqual = () => {
+    let numPrevValue = parseFloat(prevValue);
+    let numValue = parseFloat(value);
+    let equal = "";
+
+    if (operator === "+") {
+      equal = (numPrevValue + numValue).toString();
+    } else if (operator === "-") {
+      equal = (numPrevValue - numValue).toString();
+    } else if (operator === "/") {
+      equal = (numPrevValue / numValue).toString();
+    } else if (operator === "x") {
+      equal = (numPrevValue * numValue).toString();
+    } else {
+      equal = prevValue;
+    }
+
+    setDisplay(equal);
+    setValue(equal);
+    setPrevValue("");
+    setOperator("");
+  };
+
+  return (
+    <div className="flex flex-col justify-center items-center border-2 border-black bg-gray-800 rounded-md gap-1 p-1">
+      <input
+        type="text"
+        value={display !== "" ? display : prevValue}
+        disabled
+        className="bg-gray-700 h-14 rounded-md w-52 text-right  text-white text-4xl"
+      />
+      <div className="grid grid-cols-4 grid-rows-5 gap-1 w-52">
+        {[
+          "C",
+          "+-",
+          "%",
+          "/",
+          "7",
+          "8",
+          "9",
+          "x",
+          "4",
+          "5",
+          "6",
+          "-",
+          "1",
+          "2",
+          "3",
+          "+",
+          "0",
+          ".",
+          "=",
+        ].map((button, index) => (
+          <ButtonStyle
+            key={index}
+            text={button}
+            onClick={() => handleButtonClick(button)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Calculator;
+rt

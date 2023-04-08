@@ -71,9 +71,10 @@ export default function App() {
       setValue((parseFloat(value) * decimal_converter).toString());
     }
   }
-  console.log(value);
+
   function handleOperator(buttonValue: string) {
     setOperator(buttonValue);
+    if (prevValue !== "" && value === "") null;
     if (prevValue !== "") {
       handleEqual();
     } else {
@@ -86,18 +87,22 @@ export default function App() {
     let numPrevValue = parseFloat(prevValue);
     let numValue = parseFloat(value);
     let equal = 0;
-    if (operator === "+") {
-      equal = numPrevValue + numValue;
-    } else if (operator === "-") {
-      equal = numPrevValue - numValue;
-    } else if (operator === "x") {
-      equal = numPrevValue * numValue;
-    } else if (operator === "/") {
-      equal = numPrevValue / numValue;
-    } else if (operator === "") {
-      return;
+    switch (operator) {
+      case "+":
+        equal = numPrevValue + numValue;
+        break;
+      case "-":
+        equal = numPrevValue - numValue;
+        break;
+      case "x":
+        equal = numPrevValue * numValue;
+        break;
+      case "/":
+        equal = numPrevValue / numValue;
+        break;
+      default:
+        return;
     }
-
     setPrevValue(equal.toString());
     setOperator("");
     setValue("");
